@@ -25,8 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageView mainImageView;
     private EditText searchEditText;
-    private Button searchButton;
-    private TextView urlTextView;
+    private Button searchButton, aboutButton;
     private ImageButton likeImageButton, dislikeImageButton;
 
     @Override
@@ -38,22 +37,21 @@ public class MainActivity extends AppCompatActivity {
         mainImageView = findViewById(R.id.mainImageView);
         searchEditText = findViewById(R.id.searchEditText);
         searchButton = findViewById(R.id.SearchButton);
-        urlTextView = findViewById(R.id.urlTextView);
+        aboutButton = findViewById(R.id.aboutButton);
         likeImageButton = findViewById(R.id.likeImageButton);
         dislikeImageButton = findViewById(R.id.dislikeImageButton);
 
-        urlTextView.setOnClickListener(view -> {
-            // Открываем ссылку в браузере
-            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(urlTextView.getText().toString()));
-            startActivity(browserIntent);
+
+        aboutButton.setOnClickListener(view -> {
+            Toast.makeText(MainActivity.this, "Автор Кухарчук Илья Николаевич, Rating Images — это минималистичное Android-приложение, которое позволяет искать изображения в интернете и оценивать их.", Toast.LENGTH_SHORT).show();
         });
 
         likeImageButton.setOnClickListener(view -> {
-            Toast.makeText(MainActivity.this, "Понравилось изображение!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "Кухарчуку Понравилось изображение!", Toast.LENGTH_SHORT).show();
         });
 
         dislikeImageButton.setOnClickListener(view -> {
-            Toast.makeText(MainActivity.this, "Не понравилось изображение!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "Кухарчуку Не понравилось изображение!", Toast.LENGTH_SHORT).show();
         });
 
         // Обработчик кнопки поиска
